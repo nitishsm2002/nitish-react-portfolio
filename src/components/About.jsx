@@ -24,7 +24,7 @@ const About = () => {
         <div className='flex flex-col justify-around'>
           <div className='sm:px-16 px-2'>
             <h2 className='text-4xl sm:text-5xl font-extrabold mt-2'>Introduction</h2>
-            <p className='mt-3 mb-6 text-[17px] max-w-3xl leading-[30px]'>👨‍💻 Hi, I'm Nitish S M, a 2024 graduate🎓 with a passion for crafting robust frontend web pages. As a seasoned <a className='text-green-300 hover:text-green-500 duration-300' href='http://linkedin.com/in/nitish-sm-74aa2926a' target='_blank'>developer</a>, I specialize in Html CSS javascript and react.js🚀.
+            <p className='mt-3 mb-6 text-[17px] max-w-3xl leading-[30px]'>👨‍💻 Hi, I'm Nitish S M, a 2024 graduate🎓 with a passion for crafting robust frontend web pages. As a seasoned <a className='text-green-300 hover:text-green-500 duration-300' href='http://linkedin.com/in/nitish-sm-74aa2926a'>developer</a>, I specialize in Html CSS javascript and react.js🚀.
               <br />
               ✍️ Beyond coding, I love sharing my insights and experiences through engaging blogs on this website.
               On a different note, I'm also into graphic designing and typography. It's not just a hobby; I see it as a way to express creativity and communicate visually compelling messages.</p>

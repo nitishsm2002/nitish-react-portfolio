@@ -21,7 +21,7 @@ const Experience = () => {
             date={experience.duration}
             iconStyle={{ background: '#fff' }}
             icon={
-              <a className='flex justify-center items-center w-full h-full' >
+              <a href={experience.link} className='flex justify-center items-center w-full h-full' >
                 <img
                   src={experience.logo}
                   alt={experience.company}

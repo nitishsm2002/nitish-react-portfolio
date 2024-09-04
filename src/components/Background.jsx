@@ -8,7 +8,7 @@ const Stars = (props) => {
 	const ref = useRef();
 	const [sphere] = useState(() => random.inSphere(new Float32Array(5000), { radius: 1.2 }));
 
-	useFrame((state, delta) => {
+	useFrame(( delta) => {
 		if (ref.current.position.z > (0.9 + 0.1)) {
 			ref.current.position.z = -0.4;
 		}
