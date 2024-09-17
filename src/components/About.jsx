@@ -2,7 +2,7 @@ import React from 'react';
 import '../App.css';
 import { services } from '../constants';
 import ButtonLink from './ButtonLink';
-import Footer from './Footer';
+// import Footer from './Footer';
 
 const ServiceCard = ({ service }) => (
   <div className='sm:w-[250px] w-full'>
@@ -43,7 +43,7 @@ const About = () => {
           </div>
         </div>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   )
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
 import { experiences } from '../constants';
-import Footer from './Footer';
+// import Footer from './Footer';
 
 
 const Experience = () => {
@@ -53,7 +53,7 @@ const Experience = () => {
           </VerticalTimelineElement>
         ))}
       </VerticalTimeline>
-      <Footer/>
+      {/* <Footer/> */}
     </div>
   )
 }

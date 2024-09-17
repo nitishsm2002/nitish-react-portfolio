@@ -1,60 +1,81 @@
-import React, { useState, useEffect } from 'react';
-import { name } from '../constants';
-import { motion } from "framer-motion";
+import React from "react";
 import Footer from './Footer';
 
-const Home = () => {
-    const [text, setText] = useState('');
-
-    useEffect(() => {
-        let currentText = '';
-        const interval = setInterval(() => {
-            if (currentText.length < name.length) {
-                currentText += name[currentText.length];
-                setText(currentText);
-            } else {
-                clearInterval(interval);
-            }
-        }, 100); // Reduced interval time for faster animation
-        return () => clearInterval(interval);
-    }, []);
-
+// Project Card Component
+const ProjectCard = ({ image, title, description, git, technologies }) => {
     return (
-        <div className='area relative z-0 bg-black w-screen h-screen'>
-            <ul className="circles">
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-            </ul>
-            <div className='hero relative h-[calc(100vh)] flex justify-center items-center text-white' id='hero'>
-                <div className='pt-4 h-36 backdrop-blur-sm rounded-3xl'>
-                    <h1 className='text-6xl sm:text-7xl font-extrabold mt-2'>
-                        Hi, I'm&nbsp;
-                        {text.split('').map((char, index) => (
-                            <motion.span
-                                key={index}
-                                initial={{ opacity: 0, y: -20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.5, delay: index * 0.05 }}
-                                className='text-yellow-200 font-extrabold'
-                            >
-                                {char}
-                            </motion.span>
-                        ))}
-                    </h1>
-                    <p className='mt-3 text-xl'>I love to learn and build scalable and optimized frontend projects.</p>
-                </div>
+        <div className="max-w-sm sm:max-w-sm md:max-w-sm bg-gray-900 border border-neutral-100 rounded-lg shadow dark:bg-gray-950 dark:border-gray-900">
+            <a href={git || "#"}>
+                <img className="w-full rounded-t-lg h-auto object-cover" src={image} alt={title} />
+            </a>
+            <div className="p-4 sm:p-6">
+                <a href={git || "#"}>
+                    <h5 className="text-2xl sm:text-xl md:text-2xl lg:text-3xl font-bold tracking-tight text-white bg-clip-text text-transparent bg-gradient-to-r from-yellow-200 to-pink-500">{title}</h5>
+                </a>
+                <p className="font-normal text-sm sm:text-base md:text-lg text-gray-300 dark:text-gray-400">{description}</p>
             </div>
-            <Footer />
+            <div className='m-2 sm:m-4 lg:m-6 flex justify-between'>
+                <div className='flex flex-wrap gap-2 pl-2'>
+                    {technologies.map((tag, index) => (
+                        <p
+                            key={`${index}-${tag}`}
+                            className='text-[14px] text-blue-500'
+                        >
+                            #{tag}
+                        </p>
+                    ))}
+                </div>
+                <a href={git} className="text-red-300 border border-gray-200 rounded-lg shadow p-1 sm:p-2 lg:p-3 hover:text-green-500 duration-300">GitHub</a>
+            </div>
+        </div>
+    );
+};
+
+// Projects Component
+const Projects = () => {
+    return (
+        <div className="App">
+            <div className="bg-black projects">
+                <div className="flex flex-wrap gap-7 justify-center items-center m-12 p-12">
+                    {project.map((item, index) => (
+                        <ProjectCard
+                            key={index}
+                            image={item.image}
+                            title={item.title}
+                            description={item.description}
+                            git={item.git}
+                            technologies={item.technologies}
+                        />
+                    ))}
+                </div>
+                <Footer />
+            </div>
         </div>
     );
 }
 
-export default Home;
+export const project = [
+    {
+        title: 'Seri-Sense',
+        description: 'A comprehensive disease identification and recommendation system for sericulture using ML and image processing. Developed using CNNs and image processing, it provides identification, preventive resources, and expert contacts for farmers.',
+        image: require('../assets/vpn.png'),
+        git: 'https://github.com/your-github-repo',
+        technologies: ['CNN', 'ResNet50', 'VGG16']
+    },
+    {
+        title: 'Volleyball Club Management System',
+        description: 'A web-based system for scheduling games, managing member profiles, and tracking performance statistics. Built using MySQL for database management, enhancing club operations.',
+        image: require('../assets/copeople.png'),
+        git: 'https://github.com/your-github-repo',
+        technologies: ['MySQL', 'PHP']
+    },
+    {
+        title: 'Personal Portfolio Website',
+        description: 'A dynamic portfolio website showcasing my skills, projects, and achievements. Built using HTML, CSS, JavaScript, and React, featuring a clean and modern responsive design.',
+        image: require('../assets/portfolio.png'),
+        git: 'https://github.com/your-portfolio-repo',
+        technologies: ['HTML', 'CSS', 'JavaScript', 'React', 'Tailwind CSS', 'GitHub']
+    }
+]
+
+export default Projects;

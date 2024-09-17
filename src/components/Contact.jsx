@@ -3,7 +3,7 @@ import emailjs from "@emailjs/browser";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { EMAIL_JS_SERVICE_ID, EMAIL_JS_TEMPLATE_ID, EMAIL_JS_PUBLIC_KEY } from "../constants";
-import Footer from "./Footer";
+// import Footer from "./Footer";
 const Contact = () => {
 	const formRef = useRef();
 	const [form, setForm] = useState({
@@ -137,7 +137,7 @@ const Contact = () => {
 				</div>
 				<ToastContainer />
 			</div>
-		<Footer/>
+		{/* <Footer/> */}
         </div>
 	);
 };
